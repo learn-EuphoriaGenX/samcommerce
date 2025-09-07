@@ -4,3 +4,7 @@ module.exports.userLogin = (request, response) => {
 module.exports.userRegister = (request, response) => {
     return response.send("User Register logic")
 }
+
+module.exports.userProfile = (request, response) => {
+    return response.send("User Profile logic")
+}
