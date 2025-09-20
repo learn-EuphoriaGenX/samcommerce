@@ -18,13 +18,13 @@ const userSchema = new Schema({
         required: true,
         trim: true,
     },
-    orders: [{
-        type: mongoose.Types.ObjectId,
-        ref: "Orders"
-    }],
     products: [{
         type: mongoose.Types.ObjectId,
         ref: "Products"
+    }],
+    orders: [{
+        type: mongoose.Types.ObjectId,
+        ref: "Orders"
     }],
     wishlists: [{
         type: mongoose.Types.ObjectId,

@@ -9,12 +9,12 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 const userRouter = require('./routes/user.route')
-// const productRouter = require('./routes/product.route')
+const productRouter = require('./routes/product.route')
 // const orderRouter = require('./routes/order.route')
 // const wishlistRouter = require('./routes/wishlist.route')
 
 app.use("/user", userRouter)
-// app.use("/product", productRouter)
+app.use("/product", productRouter)
 // app.use("/order", orderRouter)
 // app.use("/wishlist", wishlistRouter)
 
