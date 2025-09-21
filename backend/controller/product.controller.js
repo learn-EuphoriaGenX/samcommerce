@@ -38,7 +38,7 @@ module.exports.getProduct = async (request, response) => {
 module.exports.getProductById = async (request, response) => {
     let productId = request.params.id
     try {
-        let product = await productModel.findById(productId)
+        let product = await productModel.findById(productId).populate('user')
         return response.status(200).send({ message: "Product Details", success: true, product })
     } catch (error) {
         console.log(error);
@@ -60,8 +60,8 @@ module.exports.deleteProduct = async (request, response) => {
 module.exports.updateProduct = async (request, response) => {
     let productId = request.params.id
     try {
-        await productModel.findByIdAndUpdate(request.body)
-        return response.status(200).send({ message: "Product Updated Successfully", success: true })
+        let updatedProduct = await productModel.findByIdAndUpdate(productId, request.body)
+        return response.status(200).send({ message: "Product Updated Successfully", success: true, updatedProduct })
     } catch (error) {
         console.log(error);
         return response.status(500).json({ message: "Internal Server Problem", success: false })

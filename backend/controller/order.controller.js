@@ -3,7 +3,7 @@ const userModel = require("../models/user.model")
 
 module.exports.ceateOrder = async (request, response) => {
     try {
-        let { userId } = request.user._id
+        let userId = request.user._id
         let { pid } = request.params
 
         let newOrder = await orderModel.create({
@@ -20,7 +20,7 @@ module.exports.ceateOrder = async (request, response) => {
 }
 module.exports.viewOrder = async (request, response) => {
     try {
-        let { userId } = request.user._id
+        let userId = request.user._id
         let orders = await orderModel.find({ user: userId })
         return response.status(200).send({ message: "List of Orders", orders })
     } catch (error) {
