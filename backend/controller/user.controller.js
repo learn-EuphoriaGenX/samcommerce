@@ -56,9 +56,7 @@ module.exports.userLogin = async (request, response) => {
             console.log(error);
             return response.status(500).json({ message: "Internal Server Problem", success: false })
         }
-
     }
-
 }
 
 module.exports.userProfile = (request, response) => {
