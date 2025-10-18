@@ -28,7 +28,7 @@ module.exports.addProduct = async (request, response) => {
 }
 module.exports.getProduct = async (request, response) => {
     try {
-        let products = await productModel.find()
+        let products = await productModel.find().populate('user')
         return response.status(200).send({ message: "All Products", success: true, products })
     } catch (error) {
         console.log(error);

@@ -24,7 +24,7 @@ module.exports.addItemWishlist = async (request, response) => {
 module.exports.viewItemsWishlist = async (request, response) => {
     try {
         let  userId  = request.user._id
-        let wishlists = await wishlistModel.find({ user: userId }).populate('product')
+        let wishlists = await wishlistModel.find({ user: userId }).populate('product').populate('user')
         return response.status(200).send({ message: "users wishlists", wishlists })
     } catch (error) {
         return response.status(500).send({ message: "Internal Server Problem", success: false })
